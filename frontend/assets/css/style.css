@@ -1,0 +1,148 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #101C44; /* Dark blue background */
+    color: #ffffff; /* Default text color */
+}
+
+#gallery-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 50px;
+    text-align: center;
+    justify-content: center;
+    position: relative; /* Needed for absolute positioning of the message */
+    min-height: 300px; /* Ensures there's space for centering */
+}
+
+#search-container {
+    position: relative;
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#search {
+    width: 80%;
+    padding: 15px 20px;
+    font-size: 18px;
+    border-radius: 30px 0 0 30px;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.1); /* Transparent white */
+    color: #fff;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px); /* Blurry effect */
+    transition: background-color 0.3s ease;
+}
+
+#search::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Placeholder color */
+}
+
+#search:focus {
+    background-color: rgba(255, 255, 255, 0.2); /* Slightly more opaque on focus */
+}
+
+#search-button {
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 0 30px 30px 0;
+    background-color: rgba(255, 255, 255, 0.2); /* Matches input field */
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+#search-button:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Darker on hover */
+}
+
+#photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px; /* Increase gap for better spacing */
+    margin-top: 30px;
+}
+
+.photo {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo img {
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.photo:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Enhanced shadow */
+}
+
+.photo:hover img {
+    transform: scale(1.1); /* Image zoom on hover */
+}
+
+.error {
+    color: red;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#loading {
+    text-align: center;
+    display: none;
+    color: #ffffff;
+}
+
+@media (max-width: 600px) {
+    #photo-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 10px; /* Adjust gap for small screens */
+    }
+
+    .photo {
+        border-radius: 8px; /* Slightly smaller border radius */
+    }
+}
+#load-more {
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    display: none; /* Initially hidden */
+    justify-content: center;
+
+}
+
+#load-more:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Darker on hover */
+}
+.empty-message {
+    color: #ff0000; /* Red color for the message */
+    font-size: 18px;
+    text-align: center;
+    margin-top: 20px;
+    position: absolute; /* Position it absolutely */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for its own size */
+}
